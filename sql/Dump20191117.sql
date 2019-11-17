@@ -37,12 +37,6 @@ CREATE TABLE `confirmationtoken` (
 -- Dumping data for table `confirmationtoken`
 --
 
-LOCK TABLES `confirmationtoken` WRITE;
-/*!40000 ALTER TABLE `confirmationtoken` DISABLE KEYS */;
-INSERT INTO `confirmationtoken` VALUES (17,'57e3ccc9-7ed5-4c4a-9f92-4ea3213014dd','2019-11-17 14:46:28.832000',16),(19,'db1d8c6e-3f5c-42fe-a6cb-d4509a8880a8','2019-11-17 15:22:43.570000',18);
-/*!40000 ALTER TABLE `confirmationtoken` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `playdate`
 --
@@ -121,12 +115,6 @@ CREATE TABLE `user` (
 --
 -- Dumping data for table `user`
 --
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,NULL,0,'m-toledomejia@hotmail.com',_binary '\0','Mejia','Laura'),(8,NULL,0,'sabrinamejiatoledo@gmail.com',_binary '\0','mejia','sabrina'),(10,NULL,0,'lauramejiatoledo@gmail.com',_binary '','Mejia','Laura'),(12,NULL,0,'jmejia.barranquilla@gmail.com',_binary '\0','Mejia','Javier'),(16,NULL,0,'lauramejiat16@gmail.com',_binary '','Mejia','Laura'),(18,NULL,2,'sergioacosta6@gmail.com',_binary '\0','acosta','sergio');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping events for database 'demo'
