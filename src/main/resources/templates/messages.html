@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form>
+<table>
+<tr th:each="currentMessage : ${messages}" >
+ <td th:text="${currentMessage.message_id}" />
+    <td th:text="${currentMessage.receiver}" />
+    <td th:text="${currentMessage.subject}" />
+    <td th:text="${currentMessage.body}" />
+</tr>
+</table>
+</form>
+
+ <form th:object="${newMessage}" th:action="@{/inputMessage}" method='POST'>
+ 
+ To: <input name="receiver" size="15"> <br />
+ Sub: <input name="subject" size="30"><br />
+ Message: <input name="body" size="120"><br />
+ 
+        
+ <input name="submit" type="submit" value="send message" />
+         
+</form>
+
+</body>
+</html>

@@ -8,9 +8,8 @@ import javax.validation.constraints.Size;
 import java.util.*;
 
 @Entity
-@TableGenerator(name="playdate")
-public class PlayDate {
-	  @Id
+public class PlayDate  implements Comparable<PlayDate>{
+	  	@Id
 	    @GeneratedValue
 	    private int id;
 
