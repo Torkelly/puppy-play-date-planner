@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https//www.thymeleaf.org/">
+
+<body class="container">
+<center><h1 th:text="${welcome}" style="padding-top:100px"></h1></center>
+
+
+<label><h2>My Puppies</h2></label>
+
+<a th:href="@{/puppy/add}" >Add A Puppy</a> | <a th:href="@{/puppy/remove}">Remove A Puppy</a>
+
+    <p th:unless="${puppies} and ${puppies.size()}">No puppies added.</p>
+
+        <table class="table">
+
+            <tr>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Breed</th>
+                <th>Description</th>
+                <th>Edit</th>
+            </tr>
+
+            <tr th:each="puppy : ${puppies}">
+                <td th:text="${puppy.name}"></td>
+                <td th:text="${#dates.format(puppy.birthday, 'MM/dd/yyyy')}"></td>
+                <td th:text="${puppy.breed}"></td>
+                <td th:text="${puppy.description}"></td>
+                <td><a th:href="@{/puppy/editpuppy/{pid}(pid=${puppy.id})}">Edit</a></td>
+            </tr>
+
+        </table>
+
+<label><h2>My Current Playdates</h2></label>
+
+    <p th:unless="${playdates} and ${playdates.size()}">No current playdates scheduled.</p>
+
+        <table class="table">
+
+            <tr>
+                <th>Date and Time</th>
+                <th>Location</th>
+                <th colspan="2">Participants</th>
+                <th>Message</th>
+                <th>Edit</th>
+            </tr>
+
+            <tr th:each="playdate : ${playdates}">
+                <td th:text="${#dates.format(playdate.date, 'MM/dd/yyyy, hh:mm a')}"></td>
+                <td th:text="${playdate.dogParkLocation}"></td>
+                <td th:each="user : ${playdate.users}" th:text="${user.name}"></td>
+                <td th:text="${playdate.description}"></td>
+                <td><a th:href="@{/playdate/editplaydate/{pid}(pid=${playdate.id})}">Edit</a></td>
+            </tr>
+
+        </table>
+
+<label><h2>My Past Playdates</h2></label>
+
+    <p th:unless="${pastPlaydates} and ${pastPlaydates.size()}">No past playdates scheduled.</p>
+
+        <table class="table">
+
+            <tr>
+                <th>Date and Time</th>
+                <th>Location</th>
+                <th colspan="2">Participants</th>
+                <th>Message</th>
+            </tr>
+
+            <tr th:each="pastPlaydate : ${pastPlaydates}">
+                <td th:text="${#dates.format(pastPlaydate.date, 'MM/dd/yyyy, hh:mm a')}"></td>
+                <td th:text="${pastPlaydate.dogParkLocation}"></td>
+                <td th:each="user : ${pastPlaydate.users}" th:text="${user.name}"></td>
+                <td th:text="${pastPlaydate.description}"></td>
+            </tr>
+
+        </table>
+
+</body>
+</html>
